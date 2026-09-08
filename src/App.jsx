@@ -22,50 +22,16 @@ const albums = [{
 }]
 
 import { useState } from "react";
+import {Artist, Albums} from "./Components"
 
 export default function App() {
     return (
         <div>
             <h1>My Music App</h1>
-            <Artist />
+            <Artist artist={artist}/>
             <h1>Albums</h1>
-            <Albums />
+            <Albums albums={albums}/>
         </div> 
     );
 }
 
-function Artist() {
-    return(
-        <div>
-            <h2>{artist.name}</h2>
-            <h2>{artist.genre}</h2>
-            <p>{artist.description}</p>
-        </div>
-    )
-}
-
-function Albums () {
-    const listAlbums = albums.map(album => 
-        <ul key={album.name}>
-            <li>{album.name}</li>
-            <li>{album.release_date}</li>
-            <li><img style={{width: album.image_size, height: album.image_size}}src={album.cover_art_url}></img></li>
-            <LikeButton />
-        </ul>
-    )
-    return(
-        <div>{listAlbums}</div>
-    )
-}
-
-function LikeButton () {
-    const [liked, setLiked] = useState(false)
-    const toggleLike = () => {
-        setLiked(!liked)
-    }
-    return (
-        <button onClick={toggleLike}>
-            {liked ? '❤️ Liked' : '♡ Like'}
-        </button>
-    )
-}
