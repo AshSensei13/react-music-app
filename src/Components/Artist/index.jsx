@@ -1,4 +1,7 @@
-function Artist({artist}) {
+import { useArtist } from "../../contexts/artist"
+
+function Artist() {
+    const {artist} = useArtist()
     return(
         <div>
             <h2>{artist.name}</h2>

@@ -1,11 +1,13 @@
+import { useAlbum } from "../../contexts/albums"
 import LikeButton from "../LikeButton"
 import { Link } from "react-router-dom"
 
-function Albums ({albums}) {
+function Albums () {
+    const {album} = useAlbum()
 
     return(
         <div className="album-list">
-            {albums.map(album => (
+            {album.map(album => (
                 <div className='album-box' key={album.name}>
                     <h2>{album.name}</h2>
                     <h3>{album.release_date}</h3>
