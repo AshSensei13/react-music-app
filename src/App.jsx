@@ -24,9 +24,8 @@ const albums = [{
     featured_song: "By the Way"
 }]
 
-import { useState } from "react";
-import {Artist, Albums, Home} from "./Components"
 import Nav from './Nav'
+import {Artist, Albums, Home, ShowLyrics } from "./Components"
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -38,7 +37,10 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/artist" element={<Artist artist={artist}/>} />
-                <Route path="/albums" element={<Albums albums={albums}/>} />
+                <Route path='/albums'>
+                    <Route index element={<Albums albums={albums}/>} />
+                    <Route path=':featured_song' element={<ShowLyrics artist={artist}/>} />
+                </Route>
             </Routes>
         </div> 
     );
