@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-function ShowLyrics ({ albums, artist }) {
+function ShowLyrics ({ artist }) {
     const [lyrics, setLyrics] = useState("")
     const {featured_song} = useParams()
     const navigate = useNavigate()
